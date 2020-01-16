@@ -40,6 +40,9 @@ const rockPaperScissors = (hand1, hand2) => {
   else if (hand1 === 'scissors' && hand2 === 'rock') {
     return "Hand two wins!";
   }
+  else if (hand1 === 'rock' && hand2 === '') {
+    return "No input entered!";
+  }
 
 
   // Use the unit test to see what is expected
@@ -79,6 +82,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('no input is detected', () => {
+      assert.equal(rockPaperScissors('rock', ''), "No input entered!");
     });
   });
 } else {
